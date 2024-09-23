@@ -1,232 +1,207 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
+    
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-    <script>
-        L_NO_TOUCH = false;
-        L_DISABLE_3D = false;
-    </script>
-
-    <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    <style>
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-        }
-    </style>
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" />
-
-    <meta name="viewport" content="width=device-width,
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <style>
-        #map_a1fa299624df3faa17d951d3e56ffebe {
-            position: relative;
-            width: 100.0%;
-            height: 100.0%;
-            left: 0.0%;
-            top: 0.0%;
-        }
-
-        .leaflet-container {
-            font-size: 1rem;
-        }
-    </style>
-
+            <style>
+                #map_3bc2ab1c60108191a139a7930cc691a4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
 </head>
-
 <body>
-
-
-    <div class="folium-map" id="map_a1fa299624df3faa17d951d3e56ffebe"></div>
-
+    
+    
+            <div class="folium-map" id="map_3bc2ab1c60108191a139a7930cc691a4" ></div>
+        
 </body>
 <script>
+    
+    
+            var map_3bc2ab1c60108191a139a7930cc691a4 = L.map(
+                "map_3bc2ab1c60108191a139a7930cc691a4",
+                {
+                    center: [7.3775, 3.947],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
+            
 
-    var map_a1fa299624df3faa17d951d3e56ffebe = L.map(
-        "map_a1fa299624df3faa17d951d3e56ffebe",
-        {
-            center: [7.3775, 3.947],
-            crs: L.CRS.EPSG3857,
-            zoom: 7,
-            zoomControl: true,
-            preferCanvas: false,
-        }
-    );
+        
+    
+            var tile_layer_9c31578adc62ddc20c9e89d89384afc4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_9c31578adc62ddc20c9e89d89384afc4.addTo(map_3bc2ab1c60108191a139a7930cc691a4);
+        
+    
+            var marker_8de6d2a7f69dc4f746f61b05624e344d = L.marker(
+                [7.4744, 4.5593],
+                {}
+            ).addTo(map_3bc2ab1c60108191a139a7930cc691a4);
+        
+    
+            var icon_a74d14bf93f00a2788fcdf30cfd99b53 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8de6d2a7f69dc4f746f61b05624e344d.setIcon(icon_a74d14bf93f00a2788fcdf30cfd99b53);
+        
+    
+        var popup_edbfc174a5b2e54838f5596906657980 = L.popup({"maxWidth": "100%"});
 
+        
+            
+                var html_1564b9b928f7fcd1f5a4cf877445f3c1 = $(`<div id="html_1564b9b928f7fcd1f5a4cf877445f3c1" style="width: 100.0%; height: 100.0%;">Name: Harmony Academy<br>Ward: 11<br>Local Govt Area: Ife Central<br>Level of Dilapidation: fair<br>Email: harmony@example.com</div>`)[0];
+                popup_edbfc174a5b2e54838f5596906657980.setContent(html_1564b9b928f7fcd1f5a4cf877445f3c1);
+            
+        
 
-
-
-
-    var tile_layer_6432cc142c7e8f9236fa669629e92b1a = L.tileLayer(
-        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-        { "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false }
-    );
-
-
-    tile_layer_6432cc142c7e8f9236fa669629e92b1a.addTo(map_a1fa299624df3faa17d951d3e56ffebe);
-
-
-    var marker_8f7805c6828386e6a507dc91845df991 = L.marker(
-        [7.4744, 4.5593],
-        {}
-    ).addTo(map_a1fa299624df3faa17d951d3e56ffebe);
-
-
-    var icon_0c6ed48e4a7e17c46971725d21899a9e = L.AwesomeMarkers.icon(
-        { "extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon" }
-    );
-    marker_8f7805c6828386e6a507dc91845df991.setIcon(icon_0c6ed48e4a7e17c46971725d21899a9e);
-
-
-    var popup_d0142204dbc80c093bbf643db64d5f2e = L.popup({ "maxWidth": "100%" });
-
-
-
-    var html_429bd433f405bb4c454f3ae027fc4084 = $(`<div id="html_429bd433f405bb4c454f3ae027fc4084" style="width: 100.0%; height: 100.0%;">Name: Harmony Academy<br>Ward: 11<br>Local Govt Area: Ife Central<br>Level of Dilapidation: fair<br>Email: harmony@example.com</div>`)[0];
-    popup_d0142204dbc80c093bbf643db64d5f2e.setContent(html_429bd433f405bb4c454f3ae027fc4084);
-
-
-
-    marker_8f7805c6828386e6a507dc91845df991.bindPopup(popup_d0142204dbc80c093bbf643db64d5f2e)
+        marker_8de6d2a7f69dc4f746f61b05624e344d.bindPopup(popup_edbfc174a5b2e54838f5596906657980)
         ;
 
+        
+    
+    
+            var marker_28dd8e49a247b4ae1ab2c94b59e50929 = L.marker(
+                [7.3964, 3.9167],
+                {}
+            ).addTo(map_3bc2ab1c60108191a139a7930cc691a4);
+        
+    
+            var icon_52aac00094939dfc7bd53cec1af055f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_28dd8e49a247b4ae1ab2c94b59e50929.setIcon(icon_52aac00094939dfc7bd53cec1af055f5);
+        
+    
+        var popup_a78e28a8e8ce08681605f812a7c62032 = L.popup({"maxWidth": "100%"});
 
+        
+            
+                var html_391d9925ed5de8557889fd23d27e9774 = $(`<div id="html_391d9925ed5de8557889fd23d27e9774" style="width: 100.0%; height: 100.0%;">Name: Bright Future School<br>Ward: 5<br>Local Govt Area: Ibadan North<br>Level of Dilapidation: bad<br>Email: brightfuture@example.com</div>`)[0];
+                popup_a78e28a8e8ce08681605f812a7c62032.setContent(html_391d9925ed5de8557889fd23d27e9774);
+            
+        
 
-
-    var marker_56fe80957ea20a22ba94722df335b456 = L.marker(
-        [7.3964, 3.9167],
-        {}
-    ).addTo(map_a1fa299624df3faa17d951d3e56ffebe);
-
-
-    var icon_f256275d159e537e2b80d86ebef5dcc8 = L.AwesomeMarkers.icon(
-        { "extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon" }
-    );
-    marker_56fe80957ea20a22ba94722df335b456.setIcon(icon_f256275d159e537e2b80d86ebef5dcc8);
-
-
-    var popup_2224c5100c1e3b2c1e2e47ba57e61b85 = L.popup({ "maxWidth": "100%" });
-
-
-
-    var html_8350dfdb4f7a9c8d666629936e9f6dd0 = $(`<div id="html_8350dfdb4f7a9c8d666629936e9f6dd0" style="width: 100.0%; height: 100.0%;">Name: Bright Future School<br>Ward: 5<br>Local Govt Area: Ibadan North<br>Level of Dilapidation: bad<br>Email: brightfuture@example.com</div>`)[0];
-    popup_2224c5100c1e3b2c1e2e47ba57e61b85.setContent(html_8350dfdb4f7a9c8d666629936e9f6dd0);
-
-
-
-    marker_56fe80957ea20a22ba94722df335b456.bindPopup(popup_2224c5100c1e3b2c1e2e47ba57e61b85)
+        marker_28dd8e49a247b4ae1ab2c94b59e50929.bindPopup(popup_a78e28a8e8ce08681605f812a7c62032)
         ;
 
+        
+    
+    
+            var marker_b4c0e5bf059f437dc3e0916e4da6114a = L.marker(
+                [6.75, 4.1667],
+                {}
+            ).addTo(map_3bc2ab1c60108191a139a7930cc691a4);
+        
+    
+            var icon_55c7d86c3c7380590147b2f71de13512 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b4c0e5bf059f437dc3e0916e4da6114a.setIcon(icon_55c7d86c3c7380590147b2f71de13512);
+        
+    
+        var popup_5dc82ebae61dd5aadf2d7dd106d0114c = L.popup({"maxWidth": "100%"});
 
+        
+            
+                var html_6b8e8fac7ed72e20927fe0a9d640c2c5 = $(`<div id="html_6b8e8fac7ed72e20927fe0a9d640c2c5" style="width: 100.0%; height: 100.0%;">Name: Starlight High<br>Ward: 7<br>Local Govt Area: Ijebu East<br>Level of Dilapidation: very bad<br>Email: starlight@example.com</div>`)[0];
+                popup_5dc82ebae61dd5aadf2d7dd106d0114c.setContent(html_6b8e8fac7ed72e20927fe0a9d640c2c5);
+            
+        
 
-
-    var marker_351bee468883e1cfa4163ddcf463faf2 = L.marker(
-        [6.75, 4.1667],
-        {}
-    ).addTo(map_a1fa299624df3faa17d951d3e56ffebe);
-
-
-    var icon_0fdaaf66a119dd5bc80a4af5007f020e = L.AwesomeMarkers.icon(
-        { "extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon" }
-    );
-    marker_351bee468883e1cfa4163ddcf463faf2.setIcon(icon_0fdaaf66a119dd5bc80a4af5007f020e);
-
-
-    var popup_84dfc8ca1ccb2736d1b29d4c6e4959fd = L.popup({ "maxWidth": "100%" });
-
-
-
-    var html_04b95c0f1f34c7b5edb5c4ccb7511573 = $(`<div id="html_04b95c0f1f34c7b5edb5c4ccb7511573" style="width: 100.0%; height: 100.0%;">Name: Starlight High<br>Ward: 7<br>Local Govt Area: Ijebu East<br>Level of Dilapidation: very bad<br>Email: starlight@example.com</div>`)[0];
-    popup_84dfc8ca1ccb2736d1b29d4c6e4959fd.setContent(html_04b95c0f1f34c7b5edb5c4ccb7511573);
-
-
-
-    marker_351bee468883e1cfa4163ddcf463faf2.bindPopup(popup_84dfc8ca1ccb2736d1b29d4c6e4959fd)
+        marker_b4c0e5bf059f437dc3e0916e4da6114a.bindPopup(popup_5dc82ebae61dd5aadf2d7dd106d0114c)
         ;
 
+        
+    
+    
+            var marker_668d0fa24b49ae4e215b2e178947d285 = L.marker(
+                [8.1333, 4.25],
+                {}
+            ).addTo(map_3bc2ab1c60108191a139a7930cc691a4);
+        
+    
+            var icon_b68c7e8f917b2e05eb3c979eb4104edf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_668d0fa24b49ae4e215b2e178947d285.setIcon(icon_b68c7e8f917b2e05eb3c979eb4104edf);
+        
+    
+        var popup_d9f11c9924ae32635b6476bf61a7e0c7 = L.popup({"maxWidth": "100%"});
 
+        
+            
+                var html_e1fa85303bc65539ef5fed310bec4f9e = $(`<div id="html_e1fa85303bc65539ef5fed310bec4f9e" style="width: 100.0%; height: 100.0%;">Name: Greenwood Primary<br>Ward: 2<br>Local Govt Area: Ogbomosho South<br>Level of Dilapidation: extremely bad<br>Email: greenwood@example.com</div>`)[0];
+                popup_d9f11c9924ae32635b6476bf61a7e0c7.setContent(html_e1fa85303bc65539ef5fed310bec4f9e);
+            
+        
 
-
-    var marker_20f1b432883c4ade0fa157de91b57a16 = L.marker(
-        [8.1333, 4.25],
-        {}
-    ).addTo(map_a1fa299624df3faa17d951d3e56ffebe);
-
-
-    var icon_8e3518013260b7bb6165dca9b5478f2a = L.AwesomeMarkers.icon(
-        { "extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon" }
-    );
-    marker_20f1b432883c4ade0fa157de91b57a16.setIcon(icon_8e3518013260b7bb6165dca9b5478f2a);
-
-
-    var popup_ef19de7342e3d55a462163f908f44ca0 = L.popup({ "maxWidth": "100%" });
-
-
-
-    var html_e2eb11b9277a410358ef1380eb2f617e = $(`<div id="html_e2eb11b9277a410358ef1380eb2f617e" style="width: 100.0%; height: 100.0%;">Name: Greenwood Primary<br>Ward: 2<br>Local Govt Area: Ogbomosho South<br>Level of Dilapidation: extremely bad<br>Email: greenwood@example.com</div>`)[0];
-    popup_ef19de7342e3d55a462163f908f44ca0.setContent(html_e2eb11b9277a410358ef1380eb2f617e);
-
-
-
-    marker_20f1b432883c4ade0fa157de91b57a16.bindPopup(popup_ef19de7342e3d55a462163f908f44ca0)
+        marker_668d0fa24b49ae4e215b2e178947d285.bindPopup(popup_d9f11c9924ae32635b6476bf61a7e0c7)
         ;
 
+        
+    
+    
+            var marker_c71e3be89dfdb450a5a9594c89e1ceaf = L.marker(
+                [7.85, 3.9333],
+                {}
+            ).addTo(map_3bc2ab1c60108191a139a7930cc691a4);
+        
+    
+            var icon_625f8e6a54cc932ce378a2dc2aef491c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c71e3be89dfdb450a5a9594c89e1ceaf.setIcon(icon_625f8e6a54cc932ce378a2dc2aef491c);
+        
+    
+        var popup_2e4f66a8e5404499f6fdac0bf5d08a27 = L.popup({"maxWidth": "100%"});
 
+        
+            
+                var html_58640a142a1747dc4c70db590d1ae3c0 = $(`<div id="html_58640a142a1747dc4c70db590d1ae3c0" style="width: 100.0%; height: 100.0%;">Name: Sunrise International<br>Ward: 9<br>Local Govt Area: Oyo West<br>Level of Dilapidation: bad<br>Email: sunrise@example.com</div>`)[0];
+                popup_2e4f66a8e5404499f6fdac0bf5d08a27.setContent(html_58640a142a1747dc4c70db590d1ae3c0);
+            
+        
 
-
-    var marker_69950c314042b3f5c9fa7995a480562c = L.marker(
-        [7.85, 3.9333],
-        {}
-    ).addTo(map_a1fa299624df3faa17d951d3e56ffebe);
-
-
-    var icon_38740518d5b4033c838063eafd4a81e4 = L.AwesomeMarkers.icon(
-        { "extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon" }
-    );
-    marker_69950c314042b3f5c9fa7995a480562c.setIcon(icon_38740518d5b4033c838063eafd4a81e4);
-
-
-    var popup_9969952731d97490b947256b9f325061 = L.popup({ "maxWidth": "100%" });
-
-
-
-    var html_31acb5790ee5d237c5c1f41e5e5659ee = $(`<div id="html_31acb5790ee5d237c5c1f41e5e5659ee" style="width: 100.0%; height: 100.0%;">Name: Sunrise International<br>Ward: 9<br>Local Govt Area: Oyo West<br>Level of Dilapidation: bad<br>Email: sunrise@example.com</div>`)[0];
-    popup_9969952731d97490b947256b9f325061.setContent(html_31acb5790ee5d237c5c1f41e5e5659ee);
-
-
-
-    marker_69950c314042b3f5c9fa7995a480562c.bindPopup(popup_9969952731d97490b947256b9f325061)
+        marker_c71e3be89dfdb450a5a9594c89e1ceaf.bindPopup(popup_2e4f66a8e5404499f6fdac0bf5d08a27)
         ;
 
-
-
+        
+    
 </script>
-
 </html>
