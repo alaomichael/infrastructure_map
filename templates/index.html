@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Map</title>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Infrastructure Map</h1>
+    <div id="map">
+        <iframe src="{{ url_for('static', filename='infrastructure_map.html') }}" width="100%" height="600px"></iframe>
+    </div>
+</body>
+
+</html>
