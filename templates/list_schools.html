@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infrastructure Need List</title>
+    <title>Infrastructure List</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .card {
@@ -20,7 +20,7 @@
 
 <body>
     <div class="container">
-        <h1 class="my-4">Infrastructure Need List</h1>
+        <h1 class="my-4">South-West Schools Infrastructure Need List</h1>
         <div class="row">
             {% for item in data %}
             <div class="col-md-4">
@@ -30,8 +30,9 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ item['Name of the school'] }}</h5>
                         <p class="card-text">
-                            <strong>Ward:</strong> {{ item['Ward'] }}<br>
+                            <strong>State:</strong> {{ item['State'] }}<br>
                             <strong>Local Govt Area:</strong> {{ item['Local Govt Area'] }}<br>
+                            <strong>Ward:</strong> {{ item['Ward'] }}<br>
                             <strong>Level of Dilapidation:</strong> {{ item['Level of Dilapidation'] }}<br>
                             <strong>Email:</strong> {{ item['Email of respondent'] }}
                         </p>

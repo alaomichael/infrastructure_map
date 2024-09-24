@@ -39,8 +39,9 @@ for idx, row in data.iterrows():
 
     popup_info = (
         f"Name of School: {row['Name of the school']}<br>"
-        f"Ward: {row['Ward']}<br>"
+        f"State: {row['State']}<br>"
         f"Local Govt Area: {row['Local Govt Area']}<br>"
+        f"Ward: {row['Ward']}<br>"
         f"Level of Dilapidation: {row['Level of Dilapidation']}<br>"
         f"Email: {row['Email of respondent']}"
     )
