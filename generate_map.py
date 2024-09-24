@@ -38,7 +38,7 @@ for idx, row in data.iterrows():
             continue  # Skip if geocoding fails
 
     popup_info = (
-        f"Name: {row['Name of the school']}<br>"
+        f"Name of School: {row['Name of the school']}<br>"
         f"Ward: {row['Ward']}<br>"
         f"Local Govt Area: {row['Local Govt Area']}<br>"
         f"Level of Dilapidation: {row['Level of Dilapidation']}<br>"
