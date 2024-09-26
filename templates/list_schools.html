@@ -1,112 +1,3 @@
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South-West Schools Infrastructure Need List</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1 class="my-4">South-West Schools Infrastructure Need List</h1>
-        <div class="dropdown-container">
-            <div class="form-group">
-                <label for="filter-state">Filter by State:</label>
-                <select id="filter-state" class="form-control" onchange="filterMap()">
-                    <option value="all">All</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="filter-category">Filter by Category:</label>
-                <select id="filter-category" class="form-control" onchange="filterMap()">
-                    <option value="all">All</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="filter-lga">Filter by LGA:</label>
-                <select id="filter-lga" class="form-control" onchange="filterMap()">
-                    <option value="all">All</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="filter-ward">Filter by Ward:</label>
-                <select id="filter-ward" class="form-control" onchange="filterMap()">
-                    <option value="all">All</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="filter-level_of_dilapidation">Filter by Level of Dilapidation:</label>
-                <select id="filter-level_of_dilapidation" class="form-control" onchange="filterMap()">
-                    <option value="all">All</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="filter-infrastructure_need">Filter by Infrastructure Need:</label>
-                <select id="filter-infrastructure_need" class="form-control" onchange="filterMap()">
-                    <option value="all">All</option>
-                </select>
-            </div>
-        </div> 
-
-        <div id="map" aria-label="Map showing schools"></div>
-
-        <div class="mb-3">
-            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
-        </div>
-
-        <div class="row">
-            {% for item in data %}
-            <div class="col-md-12">
-                <div class="card">
-                    <img src="{{ item['IMAGE'] }}" class="card-img-left"
-                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item['NAME OF SCHOOL'] | proper_case }}</h5>
-                        <p class="card-text">
-                            <b>Category:</b> {{ item.CATEGORIES }}<br>
-                            <b>State:</b> {{ item.STATE }}<br>
-                            <b>Local Govt Area:</b> {{ item.LGAs }}<br>
-                            <b>Ward:</b> {{ item.WARD }}<br>
-                            <b>Level of Dilapidation:</b> {{ item['LEVEL OF DILAPIDATION'] }}<br>
-                            <b>Infrastructure Need:</b>
-                        <ul>
-                            {% if item['INFASTRUCTURE NEED'] and item['INFASTRUCTURE NEED'].strip() %}
-                            {% for need in item['INFASTRUCTURE NEED'].split(',') %}
-                            <li>{{ need.strip() }}</li>
-                            {% endfor %}
-                            {% else %}
-                            <li>No infrastructure needs listed</li>
-                            {% endif %}
-                        </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script src="static/map_script.js"></script>
-    <script>var greenIcon = new L.Icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-        });
-
-        L.marker([51.5, -0.09], { icon: greenIcon }).addTo(map);</script>
-</body>
-
-</html> -->
-
-
 <!-- <!DOCTYPE html>
 <html lang="en">
 
@@ -294,7 +185,7 @@
 </html> -->
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -311,7 +202,7 @@
         <div class="mb-3">
             <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
         </div>
-        <!-- Search and Filter Form -->
+        
         <form method="GET" action="/list" class="mb-4">
             <div class="form-row">
                 <div class="col">
@@ -373,7 +264,7 @@
             {% endfor %}
         </div>
 
-        <!-- Pagination Controls -->
+        
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item {% if page == 1 %}disabled{% endif %}">
@@ -391,6 +282,231 @@
                 <li class="page-item {% if page == total_pages %}disabled{% endif %}">
                     <a class="page-link"
                         href="?page={{ page + 1 }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="static/map_script.js"></script>
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyo State Schools Infrastructure Need List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4">Oyo State Schools Infrastructure Need List</h1>
+<div class="mb-3">
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
+</div>
+        <!-- Search and Filter Form -->
+        <!-- <form method="GET" action="/list" class="mb-4">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" name="search" class="form-control" placeholder="Search by school name"
+                        value="{{ search_query }}">
+                </div>
+                <div class="col">
+                    <select name="category" class="form-control">
+                        <option value="all">All Categories</option>
+                        {% for category in unique_categories %}
+                        <option value="{{ category }}" {% if category==category_filter %}selected{% endif %}>{{ category
+                            }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <select name="state" class="form-control">
+                        <option value="all">All States</option>
+                        {% for state in unique_states %}
+                        <option value="{{ state }}" {% if state==state_filter %}selected{% endif %}>{{ state }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <div class="col">
+                    <select name="lga" class="form-control">
+                        <option value="all">All Local Govt Areas</option>
+                        {% for lga in unique_lgas %}
+                        <option value="{{ lga }}" {% if lga==lga_filter %}selected{% endif %}>{{ lga }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <select name="ward" class="form-control">
+                        <option value="all">All Wards</option>
+                        {% for ward in unique_wards %}
+                        <option value="{{ ward }}" {% if ward==ward_filter %}selected{% endif %}>{{ ward }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <select name="level_of_dilapidation" class="form-control">
+                        <option value="all">All Levels of Dilapidation</option>
+                        {% for level in unique_levels_of_dilapidation %}
+                        <option value="{{ level }}" {% if level==dilapidation_filter %}selected{% endif %}>{{ level }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <select name="infrastructure_need" class="form-control">
+                        <option value="all">All Infrastructure Needs</option>
+                        {% for need in unique_infrastructure_needs %}
+                        <option value="{{ need }}" {% if need==infrastructure_need_filter %}selected{% endif %}>{{ need
+                            }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <a href="/list" class="btn btn-secondary">Reset</a>
+                </div>
+            </div>
+        </form> -->
+
+        <form method="get">
+            <input type="text" name="search" placeholder="Search by school name" value="{{ search_query }}">
+
+            <select name="category">
+                <option value="all">All Categories</option>
+                {% for category in unique_categories %}
+                <option value="{{ category }}" {% if category==category_filter %}selected{% endif %}>{{ category }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <select name="state">
+                <option value="all">All States</option>
+                {% for state in unique_states %}
+                <option value="{{ state }}" {% if state==state_filter %}selected{% endif %}>{{ state }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="lga">
+                <option value="all">All LGAs</option>
+                {% for lga in unique_lgas %}
+                <option value="{{ lga }}" {% if lga==lga_filter %}selected{% endif %}>{{ lga }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="ward">
+                <option value="all">All Wards</option>
+                {% for ward in unique_wards %}
+                <option value="{{ ward }}" {% if ward==ward_filter %}selected{% endif %}>{{ ward }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="level_of_dilapidation">
+                <option value="all">All Levels of Dilapidation</option>
+                {% for dilapidation in unique_levels_of_dilapidation %}
+                <option value="{{ dilapidation }}" {% if dilapidation==dilapidation_filter %}selected{% endif %}>{{
+                    dilapidation
+                    }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="infrastructure_need">
+                <option value="all">All Infrastructure Needs</option>
+                {% for need in unique_infrastructure_needs %}
+                <option value="{{ need }}" {% if need==infrastructure_need_filter %}selected{% endif %}>{{ need }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Filter</button>
+            <a href="/list" class="btn btn-secondary">Reset</a>
+        </form>
+
+        <div class="row">
+            {% for item in data %}
+            <div class="col-md-12">
+                <div class="card">
+                    <img src="{{ item['IMAGE'] }}" class="card-img-left"
+                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item['NAME OF SCHOOL'] | proper_case }}</h5>
+                        <p class="card-text">
+                            <b>Category:</b> {{ item.CATEGORIES }}<br>
+                            <b>State:</b> {{ item.STATE }}<br>
+                            <b>Local Govt Area:</b> {{ item.LGAs }}<br>
+                            <b>Ward:</b> {{ item.WARD }}<br>
+                            <b>Level of Dilapidation:</b> {{ item['LEVEL OF DILAPIDATION'] }}<br>
+                            <b>Infrastructure Need:</b>
+                        <ul>
+                            {% if item['INFASTRUCTURE NEED'] and item['INFASTRUCTURE NEED'].strip() %}
+                            {% for need in item['INFASTRUCTURE NEED'].split(',') %}
+                            <li>{{ need.strip() }}</li>
+                            {% endfor %}
+                            {% else %}
+                            <li>No infrastructure needs listed</li>
+                            {% endif %}
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination Controls -->
+        <!-- <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if page == 1 %}disabled{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ page - 1 }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}&lga={{ lga_filter }}&ward={{ ward_filter }}&level_of_dilapidation={{ dilapidation_filter }}&infrastructure_need={{ infrastructure_need_filter }}"
+                        tabindex="-1">Previous</a>
+                </li>
+                {% for p in range(1, total_pages + 1) %}
+                <li class="page-item {% if p == page %}active{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ p }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}&lga={{ lga_filter }}&ward={{ ward_filter }}&level_of_dilapidation={{ dilapidation_filter }}&infrastructure_need={{ infrastructure_need_filter }}">{{
+                        p }}</a>
+                </li>
+                {% endfor %}
+                <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ page + 1 }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}&lga={{ lga_filter }}&ward={{ ward_filter }}&level_of_dilapidation={{ dilapidation_filter }}&infrastructure_need={{ infrastructure_need_filter }}">Next</a>
+                </li>
+            </ul>
+        </nav> -->
+
+        <!-- Pagination Nav -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if page == 1 %}disabled{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ page - 1 }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}"
+                        tabindex="-1">Previous</a>
+                </li>
+                {% for p in range(1, total_pages + 1) %}
+                <li class="page-item {% if p == page %}active{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ p }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}">{{
+                        p }}</a>
+                </li>
+                {% endfor %}
+                <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ page + 1 }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}">Next</a>
                 </li>
             </ul>
         </nav>
