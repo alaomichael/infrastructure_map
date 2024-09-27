@@ -5,3 +5,36 @@ ERROR:root:Geocoding failed for Along Ibadan-Abeokuta Road, Omi Onigbagbo, Ibada
 ERROR:root:Geocoding failed for Orita Aperin, Ibadan: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Orita+Aperin%2C+Ibadan&format=json&limit=1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001B5A7667E30>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)'))
 ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Adekile+Orita+Aperin+Ibadan&format=json&limit=1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001B5A78B3D70>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)'))
 ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan.: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Adekile+Orita+Aperin+Ibadan.&format=json&limit=1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001B5A790BAD0>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)'))
+ERROR:root:Geocoding failed for liberty road ibadan: Non-successful status code 403
+ERROR:root:Geocoding failed for Liberty Road, Oke Ado, Ibadan: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Liberty+Road%2C+Oke+Ado%2C+Ibadan&format=json&limit=1 (Caused by ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)"))
+ERROR:root:Geocoding failed for sango poly ibadan : HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=sango+poly+ibadan+&format=json&limit=1 (Caused by ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)"))
+ERROR:root:Geocoding failed for Along Ibadan-Abeokuta Road, Omi Onigbagbo, Ibadan : Non-successful status code 503
+ERROR:root:Geocoding failed for Orita Aperin, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Joyce B Road, Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Oyo-Ibadan Expressway, Fiditi : Non-successful status code 503
+ERROR:root:Geocoding failed for Liberty Road, Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan.: Non-successful status code 503
+ERROR:root:Geocoding failed for liberty road ibadan: Non-successful status code 403
+ERROR:root:Geocoding failed for Liberty Road, Oke Ado, Ibadan: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Liberty+Road%2C+Oke+Ado%2C+Ibadan&format=json&limit=1 (Caused by ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)"))
+ERROR:root:Geocoding failed for sango poly ibadan : HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=sango+poly+ibadan+&format=json&limit=1 (Caused by ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)"))
+ERROR:root:Geocoding failed for Along Ibadan-Abeokuta Road, Omi Onigbagbo, Ibadan : Non-successful status code 503
+ERROR:root:Geocoding failed for Orita Aperin, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Joyce B Road, Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Oyo-Ibadan Expressway, Fiditi : Non-successful status code 503
+ERROR:root:Geocoding failed for Liberty Road, Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan.: Non-successful status code 503
+ERROR:root:Geocoding failed for liberty road ibadan: Non-successful status code 403
+ERROR:root:Geocoding failed for Liberty Road, Oke Ado, Ibadan: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Liberty+Road%2C+Oke+Ado%2C+Ibadan&format=json&limit=1 (Caused by ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)"))
+ERROR:root:Geocoding failed for sango poly ibadan : HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=sango+poly+ibadan+&format=json&limit=1 (Caused by ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)"))
+ERROR:root:Geocoding failed for Along Ibadan-Abeokuta Road, Omi Onigbagbo, Ibadan : Non-successful status code 503
+ERROR:root:Geocoding failed for Orita Aperin, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Joyce B Road, Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Oyo-Ibadan Expressway, Fiditi : Non-successful status code 503
+ERROR:root:Geocoding failed for Liberty Road, Oke-Ado, Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan: Non-successful status code 503
+ERROR:root:Geocoding failed for Adekile Orita Aperin Ibadan.: Non-successful status code 503

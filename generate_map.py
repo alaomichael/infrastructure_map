@@ -36,8 +36,8 @@
 # latitude_col = 'LATITUDE'
 # longitude_col = 'LONGITUDE'
 
-# # Convert 'INFASTRUCTURE NEED' column to strings and handle NaN values
-# data['INFASTRUCTURE NEED'] = data['INFASTRUCTURE NEED'].apply(lambda x: str(x) if not pd.isna(x) else '')
+# # Convert 'INFRASTRUCTURAL NEEDS' column to strings and handle NaN values
+# data['INFRASTRUCTURAL NEEDS'] = data['INFRASTRUCTURAL NEEDS'].apply(lambda x: str(x) if not pd.isna(x) else '')
 
 # # Apply proper_case function to the 'NAME OF SCHOOL' column
 # data['NAME OF SCHOOL'] = data['NAME OF SCHOOL'].apply(proper_case)
@@ -57,11 +57,11 @@
 #             continue  # Skip if geocoding fails
 
 #     # Truncate the "infrastructure Need" field if necessary
-#     infrastructure_need = truncate_text(row['INFASTRUCTURE NEED'], 30)
+#     infrastructure_need = truncate_text(row['INFRASTRUCTURAL NEEDS'], 30)
 
 #     # Convert infrastructure need to a list and create bullet points
-#     if row['INFASTRUCTURE NEED']:
-#         infrastructure_list = row['INFASTRUCTURE NEED'].split(',')
+#     if row['INFRASTRUCTURAL NEEDS']:
+#         infrastructure_list = row['INFRASTRUCTURAL NEEDS'].split(',')
 #         infrastructure_bullets = ''.join(f"<li>{item.strip()}</li>" for item in infrastructure_list)
 #     else:
 #         infrastructure_bullets = "<li>No infrastructure needs listed</li>"
@@ -69,7 +69,7 @@
 #     # Prepare the popup content with an image
 #     popup_info = (
 #         f"<b>Name of School:</b> {row['NAME OF SCHOOL']}<br>"
-#         f"<b>Category:</b> {row['CATEGORIES']}<br>"
+#         f"<b>Category:</b> {row['CATEGORY']}<br>"
 #         f"<b>State:</b> {row['STATE']}<br>"
 #         f"<b>Local Govt Area:</b> {row['LGAs']}<br>"
 #         f"<b>Ward:</b> {row['WARD']}<br>"
@@ -119,7 +119,7 @@
 #     words = text.split()
 #     return ' '.join([word.capitalize() if word.lower() not in exceptions else word for word in words])
 
-# # Function to convert 'INFASTRUCTURE NEED' into a bullet list
+# # Function to convert 'INFRASTRUCTURAL NEEDS' into a bullet list
 # def create_infrastructure_bullets(infrastructure_needs):
 #     if infrastructure_needs:
 #         needs_list = infrastructure_needs.split(',')
@@ -128,10 +128,10 @@
 
 # # Function to generate the popup content for the map marker
 # def generate_popup(row):
-#     infrastructure_bullets = create_infrastructure_bullets(row['INFASTRUCTURE NEED'])
+#     infrastructure_bullets = create_infrastructure_bullets(row['INFRASTRUCTURAL NEEDS'])
 #     return (
 #         f"<b>Name of School:</b> {row['NAME OF SCHOOL']}<br>"
-#         f"<b>Category:</b> {row['CATEGORIES']}<br>"
+#         f"<b>Category:</b> {row['CATEGORY']}<br>"
 #         f"<b>State:</b> {row['STATE']}<br>"
 #         f"<b>Local Govt Area:</b> {row['LGAs']}<br>"
 #         f"<b>Ward:</b> {row['WARD']}<br>"
@@ -150,8 +150,8 @@
 # latitude_col = 'LATITUDE'
 # longitude_col = 'LONGITUDE'
 
-# # Convert 'INFASTRUCTURE NEED' column to strings and handle NaN values
-# data['INFASTRUCTURE NEED'] = data['INFASTRUCTURE NEED'].fillna('').astype(str)
+# # Convert 'INFRASTRUCTURAL NEEDS' column to strings and handle NaN values
+# data['INFRASTRUCTURAL NEEDS'] = data['INFRASTRUCTURAL NEEDS'].fillna('').astype(str)
 
 # # Apply proper_case function to the 'NAME OF SCHOOL' column
 # data['NAME OF SCHOOL'] = data['NAME OF SCHOOL'].apply(proper_case)
@@ -171,7 +171,7 @@
 #             continue  # Skip if geocoding fails
 
 #     # Truncate the "infrastructure Need" field for better display in the popup
-#     infrastructure_need = truncate_text(row['INFASTRUCTURE NEED'], 30)
+#     infrastructure_need = truncate_text(row['INFRASTRUCTURAL NEEDS'], 30)
 
 #     # Generate popup content
 #     popup_info = generate_popup(row)
@@ -192,11 +192,11 @@
 # # Extract unique values for filters
 # filters = {
 #     'states': data['STATE'].dropna().unique().tolist(),
-#     'categories': data['CATEGORIES'].dropna().unique().tolist(),
+#     'CATEGORY': data['CATEGORY'].dropna().unique().tolist(),
 #     'lgas': data['LGAs'].dropna().unique().tolist(),
 #     'wards': data['WARD'].dropna().unique().tolist(),
 #     'levels_of_dilapidation': data['LEVEL OF DILAPIDATION'].dropna().unique().tolist(),
-#     'infrastructure_needs': data['INFASTRUCTURE NEED'].dropna().unique().tolist()
+#     'infrastructure_needs': data['INFRASTRUCTURAL NEEDS'].dropna().unique().tolist()
 # }
 
 # # Save the filters data to a JSON file
@@ -245,8 +245,8 @@
 # latitude_col = 'LATITUDE'
 # longitude_col = 'LONGITUDE'
 
-# # Convert 'INFASTRUCTURE NEED' column to strings and handle NaN values
-# data['INFASTRUCTURE NEED'] = data['INFASTRUCTURE NEED'].apply(lambda x: str(x) if not pd.isna(x) else '')
+# # Convert 'INFRASTRUCTURAL NEEDS' column to strings and handle NaN values
+# data['INFRASTRUCTURAL NEEDS'] = data['INFRASTRUCTURAL NEEDS'].apply(lambda x: str(x) if not pd.isna(x) else '')
 
 # # Apply proper_case function to the 'NAME OF SCHOOL' column
 # data['NAME OF SCHOOL'] = data['NAME OF SCHOOL'].apply(proper_case)
@@ -266,11 +266,11 @@
 #             continue  # Skip if geocoding fails
 
 #     # Truncate the "infrastructure Need" field if necessary
-#     infrastructure_need = truncate_text(row['INFASTRUCTURE NEED'], 30)
+#     infrastructure_need = truncate_text(row['INFRASTRUCTURAL NEEDS'], 30)
 
 #     # Convert infrastructure need to a list and create bullet points
-#     if row['INFASTRUCTURE NEED']:
-#         infrastructure_list = row['INFASTRUCTURE NEED'].split(',')
+#     if row['INFRASTRUCTURAL NEEDS']:
+#         infrastructure_list = row['INFRASTRUCTURAL NEEDS'].split(',')
 #         infrastructure_bullets = ''.join(f"<li>{item.strip()}</li>" for item in infrastructure_list)
 #     else:
 #         infrastructure_bullets = "<li>No infrastructure needs listed</li>"
@@ -278,7 +278,7 @@
 #     # Prepare the popup content with an image
 #     popup_info = (
 #         f"<b>Name of School:</b> {row['NAME OF SCHOOL']}<br>"
-#         f"<b>Category:</b> {row['CATEGORIES']}<br>"
+#         f"<b>Category:</b> {row['CATEGORY']}<br>"
 #         f"<b>State:</b> {row['STATE']}<br>"
 #         f"<b>Local Govt Area:</b> {row['LGAs']}<br>"
 #         f"<b>Ward:</b> {row['WARD']}<br>"
@@ -302,11 +302,11 @@
 # # Save unique values for filters
 # filters = {
 #     'states': data['STATE'].unique().tolist(),
-#     'categories': data['CATEGORIES'].unique().tolist(),
+#     'category': data['CATEGORY'].unique().tolist(),
 #     'lgas': data['LGAs'].unique().tolist(),
 #     'wards': data['WARD'].unique().tolist(),
 #     'levels_of_dilapidation': data['LEVEL OF DILAPIDATION'].unique().tolist(),
-#     'infrastructure_needs': data['INFASTRUCTURE NEED'].unique().tolist()
+#     'infrastructure_needs': data['INFRASTRUCTURAL NEEDS'].unique().tolist()
 # }
 # with open('static/filters.json', 'w') as f:
 #     json.dump(filters, f)
@@ -345,7 +345,7 @@ def proper_case(text):
     words = text.split()
     return ' '.join([word.capitalize() if word.lower() not in exceptions else word for word in words])
 
-# Function to convert 'INFASTRUCTURE NEED' into a bullet list
+# Function to convert 'INFRASTRUCTURAL NEEDS' into a bullet list
 def create_infrastructure_bullets(infrastructure_needs):
     if infrastructure_needs:
         needs_list = infrastructure_needs.split(',')
@@ -354,10 +354,10 @@ def create_infrastructure_bullets(infrastructure_needs):
 
 # Function to generate the popup content for the map marker
 def generate_popup(row):
-    infrastructure_bullets = create_infrastructure_bullets(row['INFASTRUCTURE NEED'])
+    infrastructure_bullets = create_infrastructure_bullets(row['INFRASTRUCTURAL NEEDS'])
     return (
         f"<b>Name of School:</b> {row['NAME OF SCHOOL']}<br>"
-        f"<b>Category:</b> {row['CATEGORIES']}<br>"
+        f"<b>Category:</b> {row['CATEGORY']}<br>"
         f"<b>State:</b> {row['STATE']}<br>"
         f"<b>Local Govt Area:</b> {row['LGAs']}<br>"
         f"<b>Ward:</b> {row['WARD']}<br>"
@@ -366,14 +366,19 @@ def generate_popup(row):
         f"<img src='{row['IMAGE']}' width='100%' height='auto'>"
     )
 
-# Read data from the Excel file
+# # Read data from the Excel file
+# data = pd.read_excel('school_dilapidation_data.xlsx')
+
+# Read data from the Excel file, and strip whitespace from column names
 data = pd.read_excel('school_dilapidation_data.xlsx')
+data.columns = data.columns.str.strip()  # Remove any leading/trailing whitespace from column names
+
 
 # Print column names to verify
 print("Column names in the DataFrame:", data.columns)
 
-# Convert 'INFASTRUCTURE NEED' column to strings and handle NaN values
-data['INFASTRUCTURE NEED'] = data['INFASTRUCTURE NEED'].fillna('').astype(str)
+# Convert 'INFRASTRUCTURAL NEEDS' column to strings and handle NaN values
+data['INFRASTRUCTURAL NEEDS'] = data['INFRASTRUCTURAL NEEDS'].fillna('').astype(str)
 
 # Apply proper_case function to the 'NAME OF SCHOOL' column
 data['NAME OF SCHOOL'] = data['NAME OF SCHOOL'].apply(proper_case)
@@ -423,11 +428,11 @@ data.to_json('static/school_data.json', orient='records')
 # Extract unique values for filters
 filters = {
     'states': data['STATE'].dropna().unique().tolist(),
-    'categories': data['CATEGORIES'].dropna().unique().tolist(),
+    'category': data['CATEGORY'].dropna().unique().tolist(),
     'lgas': data['LGAs'].dropna().unique().tolist(),
     'wards': data['WARD'].dropna().unique().tolist(),
     'levels_of_dilapidation': data['LEVEL OF DILAPIDATION'].dropna().unique().tolist(),
-    'infrastructure_needs': data['INFASTRUCTURE NEED'].dropna().unique().tolist()
+    'infrastructure_needs': data['INFRASTRUCTURAL NEEDS'].dropna().unique().tolist()
 }
 
 # Save the filters data to a JSON file

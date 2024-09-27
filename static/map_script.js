@@ -29,24 +29,24 @@ function addMarkers(data) {
         var marker = L.marker([item.LATITUDE, item.LONGITUDE]).addTo(map)
             .bindPopup(`
                 <b>Name of School:</b> ${item['NAME OF SCHOOL']}<br>
-                <b>Category:</b> ${item.CATEGORIES}<br>
+                <b>Category:</b> ${item.CATEGORY}<br>
                 <b>State:</b> ${item.STATE}<br>
                 <b>Local Govt Area:</b> ${item.LGAs}<br>
                 <b>Ward:</b> ${item.WARD}<br>
                 <b>Level of Dilapidation:</b> ${item['LEVEL OF DILAPIDATION']}<br>
                 <b>Infrastructure Need:</b><ul>
-                    ${item['INFASTRUCTURE NEED'].split(',').map(need => `<li>${need.trim()}</li>`).join('')}
+                    ${item['INFRASTRUCTURAL NEEDS'].split(',').map(need => `<li>${need.trim()}</li>`).join('')}
                 </ul><br>
                 <img src="${item.IMAGE}" width="100%" height="auto">
             `);
         markers.push({
             marker: marker,
             state: item.STATE,
-            category: item.CATEGORIES,
+            category: item.CATEGORY,
             lga: item.LGAs,
             ward: item.WARD,
             level_of_dilapidation: item['LEVEL OF DILAPIDATION'],
-            infrastructure_need: item['INFASTRUCTURE NEED']
+            infrastructure_need: item['INFRASTRUCTURAL NEEDS']
         });
     });
 }
@@ -54,7 +54,7 @@ function addMarkers(data) {
 // Function to populate filter options
 function populateFilters(filters) {
     populateDropdown('filter-state', filters.states);
-    populateDropdown('filter-category', filters.categories);
+    populateDropdown('filter-category', filters.category);
     populateDropdown('filter-lga', filters.lgas);
     populateDropdown('filter-ward', filters.wards);
     populateDropdown('filter-level_of_dilapidation', filters.levels_of_dilapidation);
