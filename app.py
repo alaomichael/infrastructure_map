@@ -282,7 +282,8 @@ def truncate_email(email):
 @app.template_filter('proper_case')
 def proper_case(text):
     if isinstance(text, str):
-        exceptions = {"ud", "deen", "of"}
+        # exceptions = {"ud", "deen", "of","Ud", "Deen", "Of"}
+        exceptions = {"Ud", "Deen", "Of"}
         words = text.split()
         capitalized_words = [
             word.capitalize() if word.lower() not in exceptions else word
