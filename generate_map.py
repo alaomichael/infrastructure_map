@@ -2,6 +2,7 @@ import os
 import requests
 import folium
 import pandas as pd
+from geopy.geocoders import Nominatim
 from urllib.parse import urlparse
 import json
 import time
@@ -10,8 +11,8 @@ import logging
 # Setup logging
 logging.basicConfig(filename='geocoding_errors.log', level=logging.ERROR)
 
-# Define a constant for the image folder
-IMAGE_FOLDER = 'static/images'  # Update this as necessary
+# Initialize geolocator
+geolocator = Nominatim(user_agent="geoapiExercises")
 
 # Function to convert Google Drive link to direct image URL
 def convert_drive_link(url):
@@ -63,7 +64,7 @@ def download_image(url, school_name=None):
             logging.error(f"Could not extract a valid file name from URL: {url}")
             return None
 
-    file_path = os.path.join(IMAGE_FOLDER, file_name)
+    file_path = os.path.join('static/images', file_name)
 
     # Check if the image already exists to avoid duplicate downloads
     if not os.path.exists(file_path):
@@ -86,24 +87,6 @@ def download_image(url, school_name=None):
 
     return file_path  # Return the local path to the image
 
-# Example usage in processing data from Excel
-def process_data(row):
-    """Processes a single row, downloading its image."""
-    image_url = row['IMAGE']
-    school_name = row['NAME OF SCHOOL']
-    
-    # Download the image (or use cached local copy)
-    local_image_path = download_image(image_url, school_name)
-    
-    if local_image_path:
-        print(f"Image for {school_name} stored at {local_image_path}")
-    else:
-        print(f"Failed to download image for {school_name}")
-
-# Function to truncate text with ellipsis
-def truncate_text(text, max_length):
-    return (text[:max_length - 3] + '...') if len(text) > max_length else text
-
 # Function to properly capitalize school names
 def proper_case(text):
     exceptions = {"Ud", "Deen", "Of", "a"}
@@ -119,26 +102,30 @@ def create_infrastructure_bullets(infrastructure_needs):
 # Function to generate the popup content for the map marker
 def generate_popup(row):
     infrastructure_bullets = create_infrastructure_bullets(row['INFRASTRUCTURAL NEEDS'])
+    local_image = row.get('LOCAL_IMAGE', 'default_image.jpg')  # Fallback image if LOCAL_IMAGE is missing
     return (
         f"<b>Name of School:</b> {row['NAME OF SCHOOL']}<br>"
         f"<b>Category:</b> {row['CATEGORY']}<br>"
         f"<b>State:</b> {row['STATE']}<br>"
-        f"<b>Local Govt Area:</b> {row['LGAs']}<br>"
+        f"<b>Local Govt Area:</b> {row.get('LGAs', 'N/A')}<br>"  # Safely access LGAs
         f"<b>Ward:</b> {row['WARD']}<br>"
         f"<b>Level of Dilapidation:</b> {row['LEVEL OF DILAPIDATION']}<br>"
         f"<b>Infrastructure Need:</b><ul>{infrastructure_bullets}</ul><br>"
-        f"<img src='{row['LOCAL_IMAGE']}' width='100%' height='auto'>"
+        f"<img src='{local_image}' width='100%' height='auto'>"  # Handle missing local_image
     )
 
 # Load and clean data from Excel file
 def load_data(file_path):
     data = pd.read_excel(file_path)
     data.columns = data.columns.str.strip()  # Remove leading/trailing whitespace from column names
+    print(data.columns.tolist())  # Print column names for verification
     data['INFRASTRUCTURAL NEEDS'] = data['INFRASTRUCTURAL NEEDS'].fillna('').astype(str)
     data['NAME OF SCHOOL'] = data['NAME OF SCHOOL'].apply(proper_case)
     
     # Apply download_image row-wise with the URL
     data['LOCAL_IMAGE'] = data.apply(lambda row: download_image(row['IMAGE'], row['NAME OF SCHOOL']), axis=1)
+
+    print(data[['NAME OF SCHOOL', 'LOCAL_IMAGE']].head())  # Print first few rows to verify LOCAL_IMAGE creation
     
     return data
 
@@ -147,12 +134,13 @@ def create_map(data):
     m = folium.Map(location=[7.3775, 3.9470], zoom_start=9, tiles='OpenStreetMap')
 
     for idx, row in data.iterrows():
-        lat = row.get('LATITUDE')
-        long = row.get('LONGITUDE')
-
-        if pd.isna(lat) or pd.isna(long):
-            logging.warning(f"Missing latitude or longitude for school {row['NAME OF SCHOOL']}, skipping.")
+        lat, long = row['LATITUDE'], row['LONGITUDE']
+        if lat is None or long is None:
+            logging.warning(f"No coordinates found for school {row['NAME OF SCHOOL']}, skipping.")
             continue
+
+        print(f"Adding marker for {row['NAME OF SCHOOL']} at ({lat}, {long})")
+        time.sleep(1)  # Delay between requests
 
         # Generate popup content and add marker to the map
         popup_info = generate_popup(row)
@@ -195,6 +183,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 
