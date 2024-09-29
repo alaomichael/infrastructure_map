@@ -4,303 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South-West Schools Infrastructure Need List</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1 class="my-4">South-West Schools Infrastructure Need List</h1>
-
-        <div class="mb-3">
-            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
-        </div>
-
-        <div class="row">
-            {% for item in data %}
-            <div class="col-md-12">
-                <div class="card">
-                    <img src="{{ item['IMAGE'] }}" class="card-img-left"
-                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item['NAME OF SCHOOL'] | proper_case }}</h5>
-                        <p class="card-text">
-                            <b>Category:</b> {{ item.CATEGORY }}<br>
-                            <b>State:</b> {{ item.STATE }}<br>
-                            <b>Local Govt Area:</b> {{ item.LGAs }}<br>
-                            <b>Ward:</b> {{ item.WARD }}<br>
-                            <b>Level of Dilapidation:</b> {{ item['LEVEL OF DILAPIDATION'] }}<br>
-                            <b>Infrastructure Need:</b>
-                        <ul>
-                            {% if item['INFRASTRUCTURAL NEEDS'] and item['INFRASTRUCTURAL NEEDS'].strip() %}
-                            {% for need in item['INFRASTRUCTURAL NEEDS'].split(',') %}
-                            <li>{{ need.strip() }}</li>
-                            {% endfor %}
-                            {% else %}
-                            <li>No infrastructure needs listed</li>
-                            {% endif %}
-                        </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item {% if page == 1 %}disabled{% endif %}">
-                    <a class="page-link" href="?page={{ page - 1 }}" tabindex="-1">Previous</a>
-                </li>
-                {% for p in range(1, total_pages + 1) %}
-                <li class="page-item {% if p == page %}active{% endif %}">
-                    <a class="page-link" href="?page={{ p }}">{{ p }}</a>
-                </li>
-                {% endfor %}
-                <li class="page-item {% if page == total_pages %}disabled{% endif %}">
-                    <a class="page-link" href="?page={{ page + 1 }}">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script src="static/map_script.js"></script>
-    <script>
-        var blueIcon = new L.Icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-        });
-
-        L.marker([51.5, -0.09], { icon: blueIcon }).addTo(map);
-    </script>
-</body>
-
-</html> -->
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South-West Schools Infrastructure Need List</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1 class="my-4">South-West Schools Infrastructure Need List</h1>
-<div class="mb-3">
-    <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
-</div>
-        
-        <form method="GET" action="/list" class="mb-4">
-            <div class="form-row">
-                <div class="col">
-                    <input type="text" name="search" class="form-control" placeholder="Search by school name"
-                        value="{{ search_query }}">
-                </div>
-                <div class="col">
-                    <select name="category" class="form-control">
-                        <option value="all">All Categories</option>
-                        {% for category in unique_category %}
-                        <option value="{{ category }}" {% if category==category_filter %}selected{% endif %}>{{ category
-                            }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col">
-                    <select name="state" class="form-control">
-                        <option value="all">All States</option>
-                        {% for state in unique_states %}
-                        <option value="{{ state }}" {% if state==state_filter %}selected{% endif %}>{{ state }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                </div>
-            </div>
-        </form>
-
-        <div class="row">
-            {% for item in data %}
-            <div class="col-md-12">
-                <div class="card">
-                    <img src="{{ item['IMAGE'] }}" class="card-img-left"
-                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item['NAME OF SCHOOL'] | proper_case }}</h5>
-                        <p class="card-text">
-                            <b>Category:</b> {{ item.CATEGORY }}<br>
-                            <b>State:</b> {{ item.STATE }}<br>
-                            <b>Local Govt Area:</b> {{ item.LGAs }}<br>
-                            <b>Ward:</b> {{ item.WARD }}<br>
-                            <b>Level of Dilapidation:</b> {{ item['LEVEL OF DILAPIDATION'] }}<br>
-                            <b>Infrastructure Need:</b>
-                        <ul>
-                            {% if item['INFRASTRUCTURAL NEEDS'] and item['INFRASTRUCTURAL NEEDS'].strip() %}
-                            {% for need in item['INFRASTRUCTURAL NEEDS'].split(',') %}
-                            <li>{{ need.strip() }}</li>
-                            {% endfor %}
-                            {% else %}
-                            <li>No infrastructure needs listed</li>
-                            {% endif %}
-                        </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                {% for i in range(1, total_pages + 1) %}
-                <li class="page-item {% if i == page %}active{% endif %}">
-                    <a class="page-link"
-                        href="{{ url_for('list_schools', page=i, search=search_query, category=category_filter, state=state_filter) }}">{{
-                        i }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script src="static/map_script.js"></script>
-</body>
-
-</html> -->
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South-West Schools Infrastructure Need List</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1 class="my-4">South-West Schools Infrastructure Need List</h1>
-        <div class="mb-3">
-            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
-        </div>
-        
-        <form method="GET" action="/list" class="mb-4">
-            <div class="form-row">
-                <div class="col">
-                    <input type="text" name="search" class="form-control" placeholder="Search by school name"
-                        value="{{ search_query }}">
-                </div>
-                <div class="col">
-                    <select name="category" class="form-control">
-                        <option value="all">All Categories</option>
-                        {% for category in unique_category %}
-                        <option value="{{ category }}" {% if category==category_filter %}selected{% endif %}>{{ category
-                            }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col">
-                    <select name="state" class="form-control">
-                        <option value="all">All States</option>
-                        {% for state in unique_states %}
-                        <option value="{{ state }}" {% if state==state_filter %}selected{% endif %}>{{ state }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                    <a href="/list" class="btn btn-secondary">Reset</a>
-                </div>
-            </div>
-        </form>
-
-        <div class="row">
-            {% for item in data %}
-            <div class="col-md-12">
-                <div class="card">
-                    <img src="{{ item['IMAGE'] }}" class="card-img-left"
-                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item['NAME OF SCHOOL'] | proper_case }}</h5>
-                        <p class="card-text">
-                            <b>Category:</b> {{ item.CATEGORY }}<br>
-                            <b>State:</b> {{ item.STATE }}<br>
-                            <b>Local Govt Area:</b> {{ item.LGAs }}<br>
-                            <b>Ward:</b> {{ item.WARD }}<br>
-                            <b>Level of Dilapidation:</b> {{ item['LEVEL OF DILAPIDATION'] }}<br>
-                            <b>Infrastructure Need:</b>
-                        <ul>
-                            {% if item['INFRASTRUCTURAL NEEDS'] and item['INFRASTRUCTURAL NEEDS'].strip() %}
-                            {% for need in item['INFRASTRUCTURAL NEEDS'].split(',') %}
-                            <li>{{ need.strip() }}</li>
-                            {% endfor %}
-                            {% else %}
-                            <li>No infrastructure needs listed</li>
-                            {% endif %}
-                        </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item {% if page == 1 %}disabled{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ page - 1 }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}"
-                        tabindex="-1">Previous</a>
-                </li>
-                {% for p in range(1, total_pages + 1) %}
-                <li class="page-item {% if p == page %}active{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ p }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}">{{
-                        p }}</a>
-                </li>
-                {% endfor %}
-                <li class="page-item {% if page == total_pages %}disabled{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ page + 1 }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script src="static/map_script.js"></script>
-</body>
-
-</html> -->
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oyo State Schools Infrastructure Need List</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/styles.css">
@@ -345,161 +48,6 @@
                 {% endfor %}
             </select>
 
-            <select name="level_of_dilapidation">
-                <option value="all">All Levels of Dilapidation</option>
-                {% for dilapidation in unique_levels_of_dilapidation %}
-                <option value="{{ dilapidation }}" {% if dilapidation==dilapidation_filter %}selected{% endif %}>{{
-                    dilapidation
-                    }}</option>
-                {% endfor %}
-            </select>
-
-            <select name="infrastructure_need">
-                <option value="all">All Infrastructure Needs</option>
-                {% for need in unique_infrastructure_needs %}
-                <option value="{{ need }}" {% if need==infrastructure_need_filter %}selected{% endif %}>{{ need }}
-                </option>
-                {% endfor %}
-            </select>
-
-            <button type="submit">Filter</button>
-            <a href="/list" class="btn btn-secondary">Reset</a>
-        </form>
-
-        <div class="row">
-            {% for item in data %}
-            <div class="col-md-12">
-                <div class="card">
-                    <img src="{{ item['IMAGE'] }}" class="card-img-left"
-                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item['NAME OF SCHOOL'] | proper_case }}</h5>
-                        <p class="card-text">
-                            <b>Category:</b> {{ item.CATEGORY }}<br>
-                            <b>Address:</b> {{ item['SCHOOL ADDRESS'] }}<br>
-                            <b>State:</b> {{ item.STATE }}<br>
-                            <b>Local Govt Area:</b> {{ item.LGAs }}<br>
-                            <b>Ward:</b> {{ item.WARD }}<br>
-                            <b>Level of Dilapidation:</b> {{ item['LEVEL OF DILAPIDATION'] }}<br>
-                            <b>Infrastructure Need:</b>
-                        <ul>
-                            {% if item['INFRASTRUCTURAL NEEDS'] and item['INFRASTRUCTURAL NEEDS'].strip() %}
-                            {% for need in item['INFRASTRUCTURAL NEEDS'].split(',') %}
-                            <li>{{ need.strip() }}</li>
-                            {% endfor %}
-                            {% else %}
-                            <li>No infrastructure needs listed</li>
-                            {% endif %}
-                        </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item {% if page == 1 %}disabled{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ page - 1 }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}&lga={{ lga_filter }}&ward={{ ward_filter }}&level_of_dilapidation={{ dilapidation_filter }}&infrastructure_need={{ infrastructure_need_filter }}"
-                        tabindex="-1">Previous</a>
-                </li>
-                {% for p in range(1, total_pages + 1) %}
-                <li class="page-item {% if p == page %}active{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ p }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}&lga={{ lga_filter }}&ward={{ ward_filter }}&level_of_dilapidation={{ dilapidation_filter }}&infrastructure_need={{ infrastructure_need_filter }}">{{
-                        p }}</a>
-                </li>
-                {% endfor %}
-                <li class="page-item {% if page == total_pages %}disabled{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ page + 1 }}&search={{ search_query }}&category={{ category_filter }}&state={{ state_filter }}&lga={{ lga_filter }}&ward={{ ward_filter }}&level_of_dilapidation={{ dilapidation_filter }}&infrastructure_need={{ infrastructure_need_filter }}">Next</a>
-                </li>
-            </ul>
-        </nav> 
-
-        
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item {% if page == 1 %}disabled{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ page - 1 }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}"
-                        tabindex="-1">Previous</a>
-                </li>
-                {% for p in range(1, total_pages + 1) %}
-                <li class="page-item {% if p == page %}active{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ p }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}">{{
-                        p }}</a>
-                </li>
-                {% endfor %}
-                <li class="page-item {% if page == total_pages %}disabled{% endif %}">
-                    <a class="page-link"
-                        href="?page={{ page + 1 }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script src="static/map_script.js"></script>
-</body>
-
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oyo State Schools Infrastructure Need List</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <h1 class="my-4">Oyo State Schools Infrastructure Need List</h1>
-        <div class="mb-3">
-            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
-        </div>
-
-        <!-- Search and Filter Form -->
-        <form method="get">
-            <input type="text" name="search" placeholder="Search by school name" value="{{ search_query }}">
-
-            <select name="category">
-                <option value="all">All Categories</option>
-                {% for category in unique_category %}
-                <option value="{{ category }}" {% if category==category_filter %}selected{% endif %}>{{ category }}
-                </option>
-                {% endfor %}
-            </select>
-
-            <select name="state">
-                <option value="all">All States</option>
-                {% for state in unique_states %}
-                <option value="{{ state }}" {% if state==state_filter %}selected{% endif %}>{{ state }}</option>
-                {% endfor %}
-            </select>
-
-            <select name="lga">
-                <option value="all">All LGAs</option>
-                {% for lga in unique_lgas %}
-                <option value="{{ lga }}" {% if lga==lga_filter %}selected{% endif %}>{{ lga }}</option>
-                {% endfor %}
-            </select>
-
-            <select name="ward">
-                <option value="all">All Wards</option>
-                {% for ward in unique_wards %}
-                <option value="{{ ward }}" {% if ward==ward_filter %}selected{% endif %}>{{ ward }}</option>
-                {% endfor %}
-            </select>
 
             <select name="level_of_dilapidation">
                 <option value="all">All Levels of Dilapidation</option>
@@ -520,51 +68,11 @@
             <button type="submit">Filter</button>
             <a href="/list" class="btn btn-secondary">Reset</a>
         </form>
-        <!-- <div class="row">
-            {% for item in data %}
-            <div class="col-md-12">
-                <div class="card">
-                 
-                    <img src="{{ item['IMAGE'] }}" class="card-img-left" alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item.get('NAME OF SCHOOL', 'No name available') | proper_case }}</h5>
-                        <p class="card-text">
-                            <b>Address:</b> {{ item.get('SCHOOL ADDRESS', 'No address available') | proper_case }}<br>
-                            <b>State:</b> {{ item.get('STATE', 'No state available') }}<br>
-                            <b>Local Govt Area:</b> {{ item.get('LGAs', 'No LGA available') | proper_case }}<br>
-                        
-                            <b>Ward:</b> {{ item.get('WARD', 'No ward available') | proper_case if item.get('WARD') is
-                            string else item.get('WARD') }}<br>
-                            <b>Level of Dilapidation:</b> {{ item.get('LEVEL OF DILAPIDATION', 'Unknown') | proper_case
-                            }}<br>
-                            <b>Infrastructure Need:</b>
-                        <ul>
-                            {% if item.get('INFRASTRUCTURAL NEEDS') and item.get('INFRASTRUCTURAL NEEDS').strip() %}
-                            {% for need in item.get('INFRASTRUCTURAL NEEDS').split(',') %}
-                            <li>{{ need.strip() | proper_case }}</li>
-                            {% endfor %}
-                            {% else %}
-                            <li>No infrastructure needs listed</li>
-                            {% endif %}
-                        </ul>
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-            {% endfor %}
-        </div> -->
-
         <div class="row">
             {% for item in data %}
             <div class="col-md-12">
                 <div class="card">
-                    <!-- {% if item['IMAGE'] %}
-                    <img src="{{ item['IMAGE'] }}" class="card-img-left"
-                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
-                    {% else %}
-                    <img src="https://via.placeholder.com/150" class="card-img-left" alt="No image available">
-                    {% endif %} -->
+                      
                     <img src="{{ item['IMAGE'] or 'https://via.placeholder.com/150' }}" class="card-img-left"
                         alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
                     <div class="card-body">
@@ -594,6 +102,152 @@
             {% endfor %}
         </div>
 
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if page == 1 %}disabled{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ page - 1 }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}"
+                        tabindex="-1">Previous</a>
+                </li>
+                {% for p in range(1, total_pages + 1) %}
+                <li class="page-item {% if p == page %}active{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ p }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}">{{
+                        p }}</a>
+                </li>
+                {% endfor %}
+                <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+                    <a class="page-link"
+                        href="?page={{ page + 1 }}{% for key, value in request.args.items() if key != 'page' %}&{{ key }}={{ value }}{% endfor %}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="static/map_script.js"></script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyo State Schools Infrastructure Need List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4">Oyo State Schools Infrastructure Need List</h1>
+        <div class="mb-3">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Map</a>
+        </div>
+
+        <!-- Search and Filter Form -->
+        <form method="get" class="mb-4">
+            <input type="text" name="search" placeholder="Search by school name" value="{{ search_query }}"
+                class="form-control mb-2">
+
+            <div class="form-row">
+                <div class="col">
+                    <select name="category" class="form-control">
+                        <option value="all">All Categories</option>
+                        {% for category in unique_category %}
+                        <option value="{{ category }}" {% if category==category_filter %}selected{% endif %}>{{ category
+                            }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <select name="state" class="form-control">
+                        <option value="all">All States</option>
+                        {% for state in unique_states %}
+                        <option value="{{ state }}" {% if state==state_filter %}selected{% endif %}>{{ state }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <select name="lga" class="form-control">
+                        <option value="all">All LGAs</option>
+                        {% for lga in unique_lgas %}
+                        <option value="{{ lga }}" {% if lga==lga_filter %}selected{% endif %}>{{ lga }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <select name="ward" class="form-control">
+                        <option value="all">All Wards</option>
+                        {% for ward in unique_wards %}
+                        <option value="{{ ward }}" {% if ward==ward_filter %}selected{% endif %}>{{ ward }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <select name="level_of_dilapidation" class="form-control">
+                        <option value="all">All Levels of Dilapidation</option>
+                        {% for dilapidation in unique_levels_of_dilapidation %}
+                        <option value="{{ dilapidation }}" {% if dilapidation==dilapidation_filter %}selected{% endif
+                            %}>{{ dilapidation }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <select name="infrastructure_need" class="form-control">
+                        <option value="all">All Infrastructure Needs</option>
+                        {% for need in unique_infrastructure_needs %}
+                        <option value="{{ need }}" {% if need==infrastructure_need_filter %}selected{% endif %}>{{ need
+                            }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Filter</button>
+            <a href="/list" class="btn btn-secondary mt-2">Reset</a>
+        </form>
+
+        <div class="row">
+            {% for item in data %}
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <img src="{{ item['IMAGE'] or 'https://via.placeholder.com/150' }}" class="card-img-left"
+                        alt="Image of {{ item['NAME OF SCHOOL'] | proper_case }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.get('NAME OF SCHOOL', 'No name available') | proper_case }}</h5>
+                        <p class="card-text">
+                            <b>Address:</b> {{ item.get('SCHOOL ADDRESS', 'No address available') | proper_case }}<br>
+                            <b>State:</b> {{ item.get('STATE', 'No state available') }}<br>
+                            <b>Local Govt Area:</b> {{ item.get('LGAs', 'No LGA available') | proper_case }}<br>
+                            <b>Ward:</b> {{ item.get('WARD', 'No ward available') | proper_case }}<br>
+                            <b>Level of Dilapidation:</b> {{ item.get('LEVEL OF DILAPIDATION', 'Unknown') | proper_case
+                            }}<br>
+                            <!-- <b>Image URL:</b> <a href="{{ item['IMAGE'] }}" target="_blank">{{ item['IMAGE'] }}</a> <br> -->
+                            <b>Infrastructure Needs:</b>
+                        <ul>
+                            {% if item.get('INFRASTRUCTURAL NEEDS') and item.get('INFRASTRUCTURAL NEEDS').strip() %}
+                            {% for need in item.get('INFRASTRUCTURAL NEEDS').split(',') %}
+                            <li>{{ need.strip() | proper_case }}</li>
+                            {% endfor %}
+                            {% else %}
+                            <li>No infrastructure needs listed</li>
+                            {% endif %}
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
 
         <!-- Pagination Nav -->
         <nav aria-label="Page navigation">

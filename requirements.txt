@@ -3,3 +3,4 @@ folium
 openpyxl
 geopy
 pandas
+requests

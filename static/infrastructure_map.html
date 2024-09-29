@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_1aca991fba2b85d44539637e6403a6c8 {
+                #map_582e6e451a6a2a57ee38b3ea19d285a9 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,18 +39,18 @@
 <body>
     
     
-            <div class="folium-map" id="map_1aca991fba2b85d44539637e6403a6c8" ></div>
+            <div class="folium-map" id="map_582e6e451a6a2a57ee38b3ea19d285a9" ></div>
         
 </body>
 <script>
     
     
-            var map_1aca991fba2b85d44539637e6403a6c8 = L.map(
-                "map_1aca991fba2b85d44539637e6403a6c8",
+            var map_582e6e451a6a2a57ee38b3ea19d285a9 = L.map(
+                "map_582e6e451a6a2a57ee38b3ea19d285a9",
                 {
                     center: [7.3775, 3.947],
                     crs: L.CRS.EPSG3857,
-                    zoom: 7,
+                    zoom: 9,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -60,13 +60,310 @@
 
         
     
-            var tile_layer_2099d4e4290c54010297335fef5482a7 = L.tileLayer(
+            var tile_layer_9b95979cfa172c585885855a20439fcf = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_2099d4e4290c54010297335fef5482a7.addTo(map_1aca991fba2b85d44539637e6403a6c8);
+            tile_layer_9b95979cfa172c585885855a20439fcf.addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
         
+    
+            var marker_8ac3d069f67d0431cc6946bf17be08d6 = L.marker(
+                [7.3689023, 3.8743227],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_4b94a59238e4c8af495a5502d9f0b839 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8ac3d069f67d0431cc6946bf17be08d6.setIcon(icon_4b94a59238e4c8af495a5502d9f0b839);
+        
+    
+        var popup_326dd5cd36c30469cd972c79f16b5fcb = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_05c33c7b0f35a9e863b6807f945914f6 = $(`<div id="html_05c33c7b0f35a9e863b6807f945914f6" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Ansar Ud Deen High School<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan South West<br><b>Ward:</b> 10<br><b>Level of Dilapidation:</b> Extremely bad<br><b>Infrastructure Need:</b><ul><li>Toilet</li><li>water</li><li>classrooms</li></ul><br><img src='None' width='100%' height='auto'></div>`)[0];
+                popup_326dd5cd36c30469cd972c79f16b5fcb.setContent(html_05c33c7b0f35a9e863b6807f945914f6);
+            
+        
+
+        marker_8ac3d069f67d0431cc6946bf17be08d6.bindPopup(popup_326dd5cd36c30469cd972c79f16b5fcb)
+        ;
+
+        
+    
+    
+            var marker_a972318e53fae0b141d392a9635d1225 = L.marker(
+                [7.3675147, 3.7877552],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_17172029c56121af6fd1d9c1b9aedc95 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a972318e53fae0b141d392a9635d1225.setIcon(icon_17172029c56121af6fd1d9c1b9aedc95);
+        
+    
+        var popup_83d59502059b962523c8d71460579d1e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_3e9ad5a8b713cb96fa57635d5fa99539 = $(`<div id="html_3e9ad5a8b713cb96fa57635d5fa99539" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Ansar Ud High School<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan South West<br><b>Ward:</b> 9<br><b>Level of Dilapidation:</b> Very bad<br><b>Infrastructure Need:</b><ul><li>Toilet facilities</li><li>renovation of dilapidated buildings</li></ul><br><img src='static/images\1t9Q8LGafDhZqOUP8Qr3fl8xCKbHo9qCw.jpg' width='100%' height='auto'></div>`)[0];
+                popup_83d59502059b962523c8d71460579d1e.setContent(html_3e9ad5a8b713cb96fa57635d5fa99539);
+            
+        
+
+        marker_a972318e53fae0b141d392a9635d1225.bindPopup(popup_83d59502059b962523c8d71460579d1e)
+        ;
+
+        
+    
+    
+            var marker_d3d7962f78806ce09d8e091ca31ba504 = L.marker(
+                [7.4283585, 3.810964],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_83ba218def3ef6e9fd4325353c1521ee = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d3d7962f78806ce09d8e091ca31ba504.setIcon(icon_83ba218def3ef6e9fd4325353c1521ee);
+        
+    
+        var popup_8327f01a0c832f7839de59c019fcf9ed = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d5862f3f17864f8aee6a99dfe62267af = $(`<div id="html_d5862f3f17864f8aee6a99dfe62267af" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> The Polytecnic Ibadan<br><b>Category:</b> Tertiary <br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan North<br><b>Ward:</b> 8<br><b>Level of Dilapidation:</b> Fairly bad<br><b>Infrastructure Need:</b><ul><li>Standard class room</li></ul><br><img src='static/images\1KNhr1FvPesvQIW5_jsEqxjMHDeqfGMhR.jpg' width='100%' height='auto'></div>`)[0];
+                popup_8327f01a0c832f7839de59c019fcf9ed.setContent(html_d5862f3f17864f8aee6a99dfe62267af);
+            
+        
+
+        marker_d3d7962f78806ce09d8e091ca31ba504.bindPopup(popup_8327f01a0c832f7839de59c019fcf9ed)
+        ;
+
+        
+    
+    
+            var marker_091cf287d1850911e876238dfbc4b746 = L.marker(
+                [7.387412, 3.73524],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_cf7f20812c9d825d6406a20242ad7a2e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_091cf287d1850911e876238dfbc4b746.setIcon(icon_cf7f20812c9d825d6406a20242ad7a2e);
+        
+    
+        var popup_9a36c61a48a98ecd034f53e0eb6efd09 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_7049c645261a145b1e542995cfd05ef9 = $(`<div id="html_7049c645261a145b1e542995cfd05ef9" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Saint John's Secondary School Omi Onigbagbo.<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ido<br><b>Ward:</b> 6<br><b>Level of Dilapidation:</b> Bad<br><b>Infrastructure Need:</b><ul><li>Classroom upgrade</li><li>School Fence</li><li>Functional Library</li><li>Toilets</li></ul><br><img src='static/images\1Flaa0f-y8kD6S_H_3EhdTV6jEvYLw9KV.jpg' width='100%' height='auto'></div>`)[0];
+                popup_9a36c61a48a98ecd034f53e0eb6efd09.setContent(html_7049c645261a145b1e542995cfd05ef9);
+            
+        
+
+        marker_091cf287d1850911e876238dfbc4b746.bindPopup(popup_9a36c61a48a98ecd034f53e0eb6efd09)
+        ;
+
+        
+    
+    
+            var marker_b97177f9ca3c4955b19d82d4611892b1 = L.marker(
+                [7.36895, 3.917516],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_e170e2e10b561b3d216aea9f7fa1cdc8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b97177f9ca3c4955b19d82d4611892b1.setIcon(icon_e170e2e10b561b3d216aea9f7fa1cdc8);
+        
+    
+        var popup_23f57a206082c31b392ab5de735780be = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_353d03165b86fd5023f4afcc790c9f5e = $(`<div id="html_353d03165b86fd5023f4afcc790c9f5e" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Aperin Boys High School<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan North West<br><b>Ward:</b> 4<br><b>Level of Dilapidation:</b> Very bad<br><b>Infrastructure Need:</b><ul><li>Renovation</li></ul><br><img src='static/images\1mK-O9w2P2SZIthuIRoXSJvFV_Mwl8yc8.jpg' width='100%' height='auto'></div>`)[0];
+                popup_23f57a206082c31b392ab5de735780be.setContent(html_353d03165b86fd5023f4afcc790c9f5e);
+            
+        
+
+        marker_b97177f9ca3c4955b19d82d4611892b1.bindPopup(popup_23f57a206082c31b392ab5de735780be)
+        ;
+
+        
+    
+    
+            var marker_c86287a4b1addfc524735e803a8aa43f = L.marker(
+                [7.3795241, 3.8811918],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_93ea3304e44583a9334f42f5211ccabc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c86287a4b1addfc524735e803a8aa43f.setIcon(icon_93ea3304e44583a9334f42f5211ccabc);
+        
+    
+        var popup_f14c0e9d2aef9b65df6dc9303aa2da46 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2abe4ba43783da28b9fc44926046d2f2 = $(`<div id="html_2abe4ba43783da28b9fc44926046d2f2" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Ibadan Boys High School<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan South West<br><b>Ward:</b> 12<br><b>Level of Dilapidation:</b> Bad<br><b>Infrastructure Need:</b><ul><li>Repair of roofs</li><li>chairs</li><li>toilets</li><li>replacement of windows</li></ul><br><img src='static/images\1qHGxlds3OW5H4-ZPqjvOEr1MSfemOWGb.jpg' width='100%' height='auto'></div>`)[0];
+                popup_f14c0e9d2aef9b65df6dc9303aa2da46.setContent(html_2abe4ba43783da28b9fc44926046d2f2);
+            
+        
+
+        marker_c86287a4b1addfc524735e803a8aa43f.bindPopup(popup_f14c0e9d2aef9b65df6dc9303aa2da46)
+        ;
+
+        
+    
+    
+            var marker_1fcee8a9e71f6f521ffaa74f6b74b882 = L.marker(
+                [7.3660327, 3.815447],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_4710da6d07e3467268548113466fcf31 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1fcee8a9e71f6f521ffaa74f6b74b882.setIcon(icon_4710da6d07e3467268548113466fcf31);
+        
+    
+        var popup_572f6b9f753b5444f73f29e8c30498c9 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_42a970c28677935aec464c183f99543a = $(`<div id="html_42a970c28677935aec464c183f99543a" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Oke Ado High School<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan North West<br><b>Ward:</b> 6<br><b>Level of Dilapidation:</b> Very bad<br><b>Infrastructure Need:</b><ul><li>Replacement of roofs</li><li>ceilings</li><li>rebuilding of dilapidated blocks</li></ul><br><img src='static/images\15BE132TxIDiiEyFDaQ4EHvCpjSULs5u4.jpg' width='100%' height='auto'></div>`)[0];
+                popup_572f6b9f753b5444f73f29e8c30498c9.setContent(html_42a970c28677935aec464c183f99543a);
+            
+        
+
+        marker_1fcee8a9e71f6f521ffaa74f6b74b882.bindPopup(popup_572f6b9f753b5444f73f29e8c30498c9)
+        ;
+
+        
+    
+    
+            var marker_caad681433e1b8a9391d40181a5248bf = L.marker(
+                [7.7188448, 3.9143421],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_52af9f5ce60d422763e072b7efc2ec7e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_caad681433e1b8a9391d40181a5248bf.setIcon(icon_52af9f5ce60d422763e072b7efc2ec7e);
+        
+    
+        var popup_306c7859131efd9fcadc793ab038f00b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_869b7efe40ab3a5f089ee7e1565b325d = $(`<div id="html_869b7efe40ab3a5f089ee7e1565b325d" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Methodist Secondary School, Fiditi<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Afijo<br><b>Ward:</b> 5<br><b>Level of Dilapidation:</b> Extremely bad<br><b>Infrastructure Need:</b><ul><li>the school needs a complete renovation</li></ul><br><img src='static/images\1qsLCtS97a3tIHE-OYBysUNeS4snw9p0i.jpg' width='100%' height='auto'></div>`)[0];
+                popup_306c7859131efd9fcadc793ab038f00b.setContent(html_869b7efe40ab3a5f089ee7e1565b325d);
+            
+        
+
+        marker_caad681433e1b8a9391d40181a5248bf.bindPopup(popup_306c7859131efd9fcadc793ab038f00b)
+        ;
+
+        
+    
+    
+            var marker_ec0d870ccb8ab8d001d64a6dff9cf69e = L.marker(
+                [7.3691984, 3.8788041],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_dc9cb626414e1ffcf843d6b5feb3bfbc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ec0d870ccb8ab8d001d64a6dff9cf69e.setIcon(icon_dc9cb626414e1ffcf843d6b5feb3bfbc);
+        
+    
+        var popup_6bbf35c99ada45fd31f6517d45707fc4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5ebe817595725a9fe0b9bd76893758e4 = $(`<div id="html_5ebe817595725a9fe0b9bd76893758e4" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Baptist High School, Oke-ado<br><b>Category:</b> Primary <br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan South West<br><b>Ward:</b> 3<br><b>Level of Dilapidation:</b> Bad<br><b>Infrastructure Need:</b><ul><li>Toilets</li><li>roofing</li><li>ceilings</li><li>windows</li></ul><br><img src='static/images\1hQb-uXVvwo4g97r8FO_8fE4nApDmqX9n.jpg' width='100%' height='auto'></div>`)[0];
+                popup_6bbf35c99ada45fd31f6517d45707fc4.setContent(html_5ebe817595725a9fe0b9bd76893758e4);
+            
+        
+
+        marker_ec0d870ccb8ab8d001d64a6dff9cf69e.bindPopup(popup_6bbf35c99ada45fd31f6517d45707fc4)
+        ;
+
+        
+    
+    
+            var marker_6e6ff3c29818e403c3173b1985aa04ea = L.marker(
+                [7.3595949, 3.8818774],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_a0149659f7fa078d67e9e22ce4f94d65 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6e6ff3c29818e403c3173b1985aa04ea.setIcon(icon_a0149659f7fa078d67e9e22ce4f94d65);
+        
+    
+        var popup_4b6e7ab1e9d2a3bc580dda3fa02b1215 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_703dd31c0fcb1d63810d659f510ce223 = $(`<div id="html_703dd31c0fcb1d63810d659f510ce223" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> I M G Primary School<br><b>Category:</b> Secondary<br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan South East<br><b>Ward:</b> 6<br><b>Level of Dilapidation:</b> Extremely bad<br><b>Infrastructure Need:</b><ul><li>Standards Class room</li></ul><br><img src='None' width='100%' height='auto'></div>`)[0];
+                popup_4b6e7ab1e9d2a3bc580dda3fa02b1215.setContent(html_703dd31c0fcb1d63810d659f510ce223);
+            
+        
+
+        marker_6e6ff3c29818e403c3173b1985aa04ea.bindPopup(popup_4b6e7ab1e9d2a3bc580dda3fa02b1215)
+        ;
+
+        
+    
+    
+            var marker_88a1cc0ce707f76e8d6c9aa0669c1970 = L.marker(
+                [7.3698552, 3.9176514],
+                {}
+            ).addTo(map_582e6e451a6a2a57ee38b3ea19d285a9);
+        
+    
+            var icon_3825133d2f853d831505e6346abe75ab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_88a1cc0ce707f76e8d6c9aa0669c1970.setIcon(icon_3825133d2f853d831505e6346abe75ab);
+        
+    
+        var popup_d5a32a953e3d650ae28562b9f3400b02 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_58aef2ff6ed752e14ddfd9d3d58b282e = $(`<div id="html_58aef2ff6ed752e14ddfd9d3d58b282e" style="width: 100.0%; height: 100.0%;"><b>Name of School:</b> Goodwills Grammar Schools<br><b>Category:</b> Secondary <br><b>State:</b> Oyo<br><b>Local Govt Area:</b> Ibadan South East<br><b>Ward:</b> 6<br><b>Level of Dilapidation:</b> Extremely bad<br><b>Infrastructure Need:</b><ul><li>Toilet facilities</li><li>renovation of dilapidated buildings</li></ul><br><img src='None' width='100%' height='auto'></div>`)[0];
+                popup_d5a32a953e3d650ae28562b9f3400b02.setContent(html_58aef2ff6ed752e14ddfd9d3d58b282e);
+            
+        
+
+        marker_88a1cc0ce707f76e8d6c9aa0669c1970.bindPopup(popup_d5a32a953e3d650ae28562b9f3400b02)
+        ;
+
+        
+    
 </script>
 </html>
